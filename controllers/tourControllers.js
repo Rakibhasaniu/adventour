@@ -27,7 +27,7 @@ exports.getAllTours = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: 'failed',
-      message: 'Invalid',
+      message: err,
     });
   }
 };
@@ -45,7 +45,7 @@ exports.getTour = async (req, res) => {
   } catch (err) {
     res.status(404).json({
       status: 'failed',
-      message: 'Invalid',
+      message: err,
     });
   }
 };
@@ -92,7 +92,7 @@ exports.deleteTour = async (req, res) => {
     await Tour.findByIdAndDelete(req.params.id);
     res.status(204).json({
       status: 'fail',
-      message: 'invalid Id',
+      message: err,
     });
   } catch (err) {
     res.status(200).json({
